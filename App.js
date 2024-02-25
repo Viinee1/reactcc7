@@ -5,12 +5,16 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   const [valor, setValor] = useState(0);
   const [backgroundColor, setBackgroundColor] = useState('#fff');
-  const [cliquesfundo, setFundo] = useState(0);
   const [imagem, setImagem] = useState('./images/jack.jpeg');
+  const [cliques, setCliques] = useState(0);
+ 
 
 
   const trocarImagem = () => {
-    setImagem('./images/mp.jpg');
+    setCliques(cliques + 1);
+    if (cliques >= 2) {
+      setImagem('./images/mp.jpg');
+    }  
   };
 
   const subtrairContador = () => {
@@ -18,11 +22,7 @@ export default function App() {
   };
 
   const atualizarFundo = () => {
-    setFundo(cliquesfundo + 1);
-
-    if (cliquesfundo >= 0) {
       setBackgroundColor('green');
-    }
   };
 
   const atualizarValor = () => {
